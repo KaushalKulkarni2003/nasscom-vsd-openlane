@@ -87,6 +87,9 @@ Perform final verification steps, including Design Rule Checking (DRC), Layout V
 > Current working Directory for Projects
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/d2419a19-8d95-4dc8-8c66-37a2ac9ecba2)
 
+Initiate the bash terminal by command
+`docker`
+
 
 
 
