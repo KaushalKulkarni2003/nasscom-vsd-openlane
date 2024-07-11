@@ -86,12 +86,27 @@ Perform final verification steps, including Design Rule Checking (DRC), Layout V
 - cd : Change directories
 > Current working Directory for Projects
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/d2419a19-8d95-4dc8-8c66-37a2ac9ecba2)
-
-Initiate the bash terminal by command-
-
+Do the following steps for openlane flow
+`Initiate the bash terminal by command-`
 ```
-docker
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane$ docker
 ```
+`Run interactive mode `
+```
+bash-4.2$ ./flow.tcl -interactive
+```
+`Import Packages for openlane`
+```
+% package require openlane 0.9
+```
+`To prepare the design-`
+```
+prep -design picorv32a
+```
+>Design Preparation Done
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/a1a3168e-a9ca-47a8-80b5-2b95ac0bb9e4)
+
+
 
 
 
