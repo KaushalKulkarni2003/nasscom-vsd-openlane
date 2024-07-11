@@ -86,25 +86,52 @@ Perform final verification steps, including Design Rule Checking (DRC), Layout V
 - cd : Change directories
 > Current working Directory for Projects
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/d2419a19-8d95-4dc8-8c66-37a2ac9ecba2)
-Do the following steps for openlane flow
-`Initiate the bash terminal by command-`
-```
-vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane$ docker
-```
-`Run interactive mode `
-```
-bash-4.2$ ./flow.tcl -interactive
-```
-`Import Packages for openlane`
-```
-% package require openlane 0.9
-```
-`To prepare the design-`
-```
-prep -design picorv32a
-```
+
+Set Up the Environment for Openlane
+1. **Initiate the bash terminal with the command:**
+
+    ```bash
+    vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane$ docker
+    ```
+
+2. **Run interactive mode:**
+
+    ```bash
+    bash-4.2$ ./flow.tcl -interactive
+    ```
+
+3. **Import packages for OpenLane:**
+
+    ```tcl
+    % package require openlane 0.9
+    ```
+Start the Design
+## Step 1
+    `To prepare the design-`
+    ```
+    prep -design picorv32a
+    ```
 >Design Preparation Done
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/a1a3168e-a9ca-47a8-80b5-2b95ac0bb9e4)
+
+After preparation is finished, a new directory named with the current date will be created within the “runs” folder. This directory will contain all the essential subdirectories for storing results, reports, and other pertinent data.
+>Runs folder will be created with current date
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/de5ab244-664a-47ec-8f00-3fb21b5e301d)
+
+## Step 2
+    `Run synthesis( Uses yosys and abc)`
+    ```
+    % run_synthesis
+    ```
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/87654604-7460-4c91-ab26-acd5015d89c7)
+
+## Step 3
+    `Calculate the Flop Ratio`
+    Formula: Number of D-FlipFlops/ Total Number of Cells
+    Here, 1613/14876 = 0.108 (10%)
+
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/7314cfc7-b2b8-447c-876a-09e5d4ef115f)
+
 
 
 
