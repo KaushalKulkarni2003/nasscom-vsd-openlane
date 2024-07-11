@@ -234,6 +234,27 @@ To address this issue, decoupling capacitors are introduced into the design. The
 > Here is how Decoupling capacitors are placed in the design. Once this is done the local communication of the blocks is taken care.
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/c6bf4c02-c753-4a31-8777-1305f3cfa77c)
 
+#### Power Planning
+> Consider this design where all the blocks get power supply from a single source
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/7c24e866-255f-47e6-8840-57d964576a6a)
+
+> Here, when all the capacitors are discharger together, there is a Ground Bounce which can lead to undefined state of the power.
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/6b8d8621-9c27-4bfb-82d0-223e9396b581)
+
+> Here when all the capacitors are to be charged the supply is not enough as it is from a single source, hence again there is a Voltage Drop which can lead to undefined state of voltage.
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/bfaa7fba-1fe3-44fc-89dc-8d89768dc094)
+
+To solve this problem we introduce- Multiple power supply and ground. Hence the capacitors can take charge and discharge from nearest point
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/7e3e27c7-144b-460e-8aaf-95eef42fe1c1)
+
+> The actual design would look like this-
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/a993a3c2-70c4-49a8-8d2f-a0ff922883ae)
+
+
+
+
+
+ 
 
 
 
