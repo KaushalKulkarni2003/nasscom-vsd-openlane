@@ -127,6 +127,79 @@ After preparation is finished, a new directory named with the current date will 
 
 
 
+## Good Floor Plan vs Bad Floor Plan and introduction to Library Cells
+
+### Utilization Factor and Aspect Ratio
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/13c44392-ed22-4de6-80e8-6f7a7aea305c)
+### Utilization Factor and Aspect Ratio
+
+To determine the Utilization Factor and Aspect Ratio, it is essential to understand how the height and width of the core and die areas are defined.
+
+#### Core Area
+
+The core area of a chip is the region dedicated to placing all the logic cells and components. This is where the core logic of the chip resides. The dimensions of the core area (height and width) are primarily determined by the netlist of the design, which specifies the number of components needed to implement the logic.
+
+#### Die Area
+
+Surrounding the core area is the die area, which serves as the boundary for the chip. The die area is used for placing I/O (Input/Output) related components. The dimensions of the die area (height and width) are directly influenced by the dimensions of the core area. 
+
+#### Utilization Factor
+
+The Utilization Factor is a measure of how efficiently the core area is used for placing logic cells. It is calculated as the ratio of the area occupied by the logic cells to the total core area. A high Utilization Factor indicates that the core area is densely packed with logic cells, while a low Utilization Factor suggests that there is a lot of unused space within the core.
+
+#### Aspect Ratio
+
+The Aspect Ratio is the ratio of the height to the width of the core or die area. It is an important parameter in chip design as it affects the layout and routing of the components. A well-balanced aspect ratio ensures optimal performance and manufacturability of the chip.
+
+> #### Consider the following Example-
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/b5253d89-c89e-4de6-b29a-b069b346002f)
+
+> All the components are converted to their area specifications
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/c5d37b26-df3d-4a10-b6e3-67fd1f707062)
+
+> A chip core and die
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/67c322a5-3bae-4e45-bc7e-de27e08b4f27)
+
+>100% Utilization of the chip area
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/62275165-40e1-4d6b-8716-7bd0f7f71a61)
+
+#### Utilization Factor
+
+The Utilization Factor is defined as the ratio of the core area occupied by the netlist to the total core area. For an effective floorplan, the Utilization Factor should never be '1'. When the Utilization Factor is '1', it indicates that there is no available space for adding additional logic, leading to a poor floorplan.
+
+\[ \text{Utilization Factor} = \frac{\text{Area occupied by netlist}}{\text{Total core area}} \]
+
+#### Aspect Ratio
+
+The Aspect Ratio is defined as the ratio of the height of the core to the width of the core. If the Aspect Ratio is '1', the core is square-shaped. If the Aspect Ratio is different from '1', the core is rectangular.
+
+\[ \text{Aspect Ratio} = \frac{\text{Height of the core}}{\text{Width of the core}} \]
+
+#### Example Calculation
+
+In this example, the calculations yield:
+
+- **Utilization Factor**: 
+
+\[ \text{Utilization Factor} = \frac{4 \text{ sq units}}{4 \text{ sq units}} = 1 \]
+
+- **Aspect Ratio**: 
+
+\[ \text{Aspect Ratio} = \frac{2 \text{ units}}{2 \text{ units}} = 1 \]
+
+Here, the Utilization Factor is '1', indicating no additional space for extra logic, and the Aspect Ratio is '1', indicating that the core is square-shaped.
+
+>50% Utilization of the chip Area
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/bfc8fadd-b314-42d6-abc3-f5863d1ce963)
+In this case:
+
+\[ \text{Utilization Factor} = \frac{4 \text{ sq units}}{8 \text{ sq units}} = 0.5 \]
+
+\[ \text{Aspect Ratio} = \frac{2 \text{ units}}{4 \text{ units}} = 0.5 \]
+
+This indicates that the core is rectangular in shape.
+
+
 
 
 
