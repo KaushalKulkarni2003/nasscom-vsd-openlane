@@ -163,19 +163,19 @@ The Aspect Ratio is the ratio of the height to the width of the core or die area
 >100% Utilization of the chip area
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/62275165-40e1-4d6b-8716-7bd0f7f71a61)
 
-#### Utilization Factor
+### Utilization Factor
 
 The Utilization Factor is defined as the ratio of the core area occupied by the netlist to the total core area. For an effective floorplan, the Utilization Factor should never be '1'. When the Utilization Factor is '1', it indicates that there is no available space for adding additional logic, leading to a poor floorplan.
 
 \[ \text{Utilization Factor} = \frac{\text{Area occupied by netlist}}{\text{Total core area}} \]
 
-#### Aspect Ratio
+### Aspect Ratio
 
 The Aspect Ratio is defined as the ratio of the height of the core to the width of the core. If the Aspect Ratio is '1', the core is square-shaped. If the Aspect Ratio is different from '1', the core is rectangular.
 
 \[ \text{Aspect Ratio} = \frac{\text{Height of the core}}{\text{Width of the core}} \]
 
-#### Example Calculation
+### Example Calculation
 
 In this example, the calculations yield:
 
@@ -189,8 +189,9 @@ In this example, the calculations yield:
 
 Here, the Utilization Factor is '1', indicating no additional space for extra logic, and the Aspect Ratio is '1', indicating that the core is square-shaped.
 
->50% Utilization of the chip Area
-![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/bfc8fadd-b314-42d6-abc3-f5863d1ce963)
+> 50% Utilization of the chip Area  
+> ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/bfc8fadd-b314-42d6-abc3-f5863d1ce963)
+
 In this case:
 
 \[ \text{Utilization Factor} = \frac{4 \text{ sq units}}{8 \text{ sq units}} = 0.5 \]
@@ -198,14 +199,6 @@ In this case:
 \[ \text{Aspect Ratio} = \frac{2 \text{ units}}{4 \text{ units}} = 0.5 \]
 
 This indicates that the core is rectangular in shape.
-
-
-
-
-
-
-
-
 
 
 
