@@ -85,7 +85,8 @@ Perform final verification steps, including Design Rule Checking (DRC), Layout V
 - pwd : Tells current working directory
 - cd : Change directories
 > Current working Directory for Projects
-![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/66397ed6-0623-423d-9c2b-3ad19b11c77e)
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/d2419a19-8d95-4dc8-8c66-37a2ac9ecba2)
+
 
 
 
