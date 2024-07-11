@@ -168,7 +168,7 @@ The Aspect Ratio is the ratio of the height to the width of the core or die area
 The Utilization Factor is defined as the ratio of the core area occupied by the netlist to the total core area. For an effective floorplan, the Utilization Factor should never be '1'. When the Utilization Factor is '1', it indicates that there is no available space for adding additional logic, leading to a poor floorplan.
 
 <p align="center">
-Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{\text{Area occupied by netlist}}{\text{Total core area}}" />
+Utilization Factor = <sup>Area occupied by netlist</sup>&frasl;<sub>Total core area</sub>
 </p>
 
 ### Aspect Ratio
@@ -176,7 +176,7 @@ Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{\text{
 The Aspect Ratio is defined as the ratio of the height of the core to the width of the core. If the Aspect Ratio is '1', the core is square-shaped. If the Aspect Ratio is different from '1', the core is rectangular.
 
 <p align="center">
-Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{\text{Height of the core}}{\text{Width of the core}}" />
+Aspect Ratio = <sup>Height of the core</sup>&frasl;<sub>Width of the core</sub>
 </p>
 
 ### Example Calculation
@@ -186,13 +186,13 @@ In this example, the calculations yield:
 - **Utilization Factor**: 
 
 <p align="center">
-Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{4 \text{ sq units}}{4 \text{ sq units}} = 1" />
+Utilization Factor = <sup>4 sq units</sup>&frasl;<sub>4 sq units</sub> = 1
 </p>
 
 - **Aspect Ratio**: 
 
 <p align="center">
-Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{2 \text{ units}}{2 \text{ units}} = 1" />
+Aspect Ratio = <sup>2 units</sup>&frasl;<sub>2 units</sub> = 1
 </p>
 
 Here, the Utilization Factor is '1', indicating no additional space for extra logic, and the Aspect Ratio is '1', indicating that the core is square-shaped.
@@ -203,14 +203,15 @@ Here, the Utilization Factor is '1', indicating no additional space for extra lo
 In this case:
 
 <p align="center">
-Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{4 \text{ sq units}}{8 \text{ sq units}} = 0.5" />
+Utilization Factor = <sup>4 sq units</sup>&frasl;<sub>8 sq units</sub> = 0.5
 </p>
 
 <p align="center">
-Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{2 \text{ units}}{4 \text{ units}} = 0.5" />
+Aspect Ratio = <sup>2 units</sup>&frasl;<sub>4 units</sub> = 0.5
 </p>
 
 This indicates that the core is rectangular in shape.
+
 
 
 
