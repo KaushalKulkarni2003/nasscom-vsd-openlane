@@ -78,6 +78,16 @@ Perform final verification steps, including Design Rule Checking (DRC), Layout V
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/a3e6498e-858c-4a63-b34a-6f12798bab53)
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/495023cc-a3b4-43f5-9fa3-0b0d9d634374)
 
+## Day 1 Lab
+### Introduction to terminal commands
+- ls -ltr : Show all files in chronological order in the current folder
+- clear : Clears the terminal screen
+- pwd : Tells current working directory
+- cd : Change directories
+> Current working Directory for Projects
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/66397ed6-0623-423d-9c2b-3ad19b11c77e)
+
+
 
 
 
