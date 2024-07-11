@@ -167,7 +167,7 @@ The Aspect Ratio is the ratio of the height to the width of the core or die area
 
 The Utilization Factor is defined as the ratio of the core area occupied by the netlist to the total core area. For an effective floorplan, the Utilization Factor should never be '1'. When the Utilization Factor is '1', it indicates that there is no available space for adding additional logic, leading to a poor floorplan.
 
-<p align="center">
+<p align="left">
 Utilization Factor = <sup>Area occupied by netlist</sup>&frasl;<sub>Total core area</sub>
 </p>
 
@@ -175,7 +175,7 @@ Utilization Factor = <sup>Area occupied by netlist</sup>&frasl;<sub>Total core a
 
 The Aspect Ratio is defined as the ratio of the height of the core to the width of the core. If the Aspect Ratio is '1', the core is square-shaped. If the Aspect Ratio is different from '1', the core is rectangular.
 
-<p align="center">
+<p align="left">
 Aspect Ratio = <sup>Height of the core</sup>&frasl;<sub>Width of the core</sub>
 </p>
 
@@ -185,13 +185,13 @@ In this example, the calculations yield:
 
 - **Utilization Factor**: 
 
-<p align="center">
+<p align="left">
 Utilization Factor = <sup>4 sq units</sup>&frasl;<sub>4 sq units</sub> = 1
 </p>
 
 - **Aspect Ratio**: 
 
-<p align="center">
+<p align="left">
 Aspect Ratio = <sup>2 units</sup>&frasl;<sub>2 units</sub> = 1
 </p>
 
@@ -202,15 +202,32 @@ Here, the Utilization Factor is '1', indicating no additional space for extra lo
 
 In this case:
 
-<p align="center">
+<p align="left">
 Utilization Factor = <sup>4 sq units</sup>&frasl;<sub>8 sq units</sub> = 0.5
 </p>
 
-<p align="center">
+<p align="left">
 Aspect Ratio = <sup>2 units</sup>&frasl;<sub>4 units</sub> = 0.5
 </p>
 
 This indicates that the core is rectangular in shape.
+
+#### Concept of Pre-placed Cells
+Take a Combinational Circuit and separate it into 2 different parts to implement
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/6aba77f8-de0d-4309-8039-96d8d5d13e81)
+
+Connect the design and extend the IO's. Convert it into Blackbox so we can't se what is implemented in the top netlist.
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/3faa1dfb-bab5-4363-bf2f-a3a312dea84c)
+
+Separate the 2 Blackbox. Advantage of doing it is that we can use the blackbox multiple times in the chip anywhere by instantiating it there.
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/754beadb-2170-4d4f-bdec-8d974d06ed6d)
+
+Designs of similar IPs are available to use in the design
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/5b708946-8061-4beb-9e98-3b86a50c8181)
+
+
+
+
 
 
 
