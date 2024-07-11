@@ -226,6 +226,17 @@ Designs of similar IPs are available to use in the design
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/5b708946-8061-4beb-9e98-3b86a50c8181)
 
 
+#### Decoupling Capacitors
+![Untitled design (12)](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/aeef5a7f-1f48-4e73-9d09-2a56ede59e5e)
+When designing a chip, all blocks are placed within cells. Each cell receives a power supply voltage, denoted as `Vdd`. For logic levels, a logic 0 corresponds to a low voltage, while a logic 1 corresponds to a high voltage. 
+As current travels through the wiring, which inherently has resistance, there is a resultant voltage drop, referred to as `Vdd'`. If `Vdd'` falls below the noise margin defined for the region, the signal can become undefined, potentially leading to dangerous situations where the signal may take any value.
+To address this issue, decoupling capacitors are introduced into the design. These capacitors help maintain stable voltage levels and can discharge when necessary to ensure the voltage does not drop below the critical threshold.
+> Here is how Decoupling capacitors are placed in the design. Once this is done the local communication of the blocks is taken care.
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/c6bf4c02-c753-4a31-8777-1305f3cfa77c)
+
+
+
+
 
 
 
