@@ -48,6 +48,30 @@ Open source EDA tools like OpenLane and OpenROAD are essential for digital ASIC 
 
 The SkyWater 130nm PDK, developed with Google, is an open source Process Design Kit offering detailed process information and verified standard cell libraries. It enables affordable and accessible silicon-proven design for academic and community projects.
 
+## RTL to GDSII Flow
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/7942c14c-d361-43e0-a89c-44b006abe6ff)
+
+### 1. Synthesis
+Transform RTL code into a gate-level netlist using a synthesis tool like Yosys. This process involves logic optimization and technology mapping.
+
+### 2. Floor Planning
+Define the chip's layout, including the placement of key blocks and IO pins. Create power and ground planes to ensure stable power distribution.
+
+### 3. Power Planning
+Design the power distribution network, ensuring adequate power delivery to all parts of the chip while minimizing IR drop and electromigration issues.
+
+### 4. Placement
+Place standard cells on the chip layout according to the netlist. Optimize cell placement to minimize wire length and improve performance.
+
+### 5. Clock Tree Synthesis (CTS)
+Create a balanced clock distribution network to ensure that clock signals reach all sequential elements simultaneously, minimizing clock skew.
+
+### 6. Routing
+Connect all the placed cells and IO pins with metal wires. Use a global router followed by a detailed router to optimize wire length and reduce congestion.
+
+### 7. Sign-Off
+Perform final verification steps, including Design Rule Checking (DRC), Layout Versus Schematic (LVS) checking, and timing analysis, to ensure the design meets all specifications and is ready for fabrication.
+
 
 
 
