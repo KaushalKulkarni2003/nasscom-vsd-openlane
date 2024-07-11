@@ -167,13 +167,17 @@ The Aspect Ratio is the ratio of the height to the width of the core or die area
 
 The Utilization Factor is defined as the ratio of the core area occupied by the netlist to the total core area. For an effective floorplan, the Utilization Factor should never be '1'. When the Utilization Factor is '1', it indicates that there is no available space for adding additional logic, leading to a poor floorplan.
 
-\[ \text{Utilization Factor} = \frac{\text{Area occupied by netlist}}{\text{Total core area}} \]
+<p align="center">
+Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{\text{Area occupied by netlist}}{\text{Total core area}}" />
+</p>
 
 ### Aspect Ratio
 
 The Aspect Ratio is defined as the ratio of the height of the core to the width of the core. If the Aspect Ratio is '1', the core is square-shaped. If the Aspect Ratio is different from '1', the core is rectangular.
 
-\[ \text{Aspect Ratio} = \frac{\text{Height of the core}}{\text{Width of the core}} \]
+<p align="center">
+Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{\text{Height of the core}}{\text{Width of the core}}" />
+</p>
 
 ### Example Calculation
 
@@ -181,11 +185,15 @@ In this example, the calculations yield:
 
 - **Utilization Factor**: 
 
-\[ \text{Utilization Factor} = \frac{4 \text{ sq units}}{4 \text{ sq units}} = 1 \]
+<p align="center">
+Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{4 \text{ sq units}}{4 \text{ sq units}} = 1" />
+</p>
 
 - **Aspect Ratio**: 
 
-\[ \text{Aspect Ratio} = \frac{2 \text{ units}}{2 \text{ units}} = 1 \]
+<p align="center">
+Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{2 \text{ units}}{2 \text{ units}} = 1" />
+</p>
 
 Here, the Utilization Factor is '1', indicating no additional space for extra logic, and the Aspect Ratio is '1', indicating that the core is square-shaped.
 
@@ -194,12 +202,15 @@ Here, the Utilization Factor is '1', indicating no additional space for extra lo
 
 In this case:
 
-\[ \text{Utilization Factor} = \frac{4 \text{ sq units}}{8 \text{ sq units}} = 0.5 \]
+<p align="center">
+Utilization Factor = <img src="https://latex.codecogs.com/svg.latex?\frac{4 \text{ sq units}}{8 \text{ sq units}} = 0.5" />
+</p>
 
-\[ \text{Aspect Ratio} = \frac{2 \text{ units}}{4 \text{ units}} = 0.5 \]
+<p align="center">
+Aspect Ratio = <img src="https://latex.codecogs.com/svg.latex?\frac{2 \text{ units}}{4 \text{ units}} = 0.5" />
+</p>
 
 This indicates that the core is rectangular in shape.
-
 
 
 
