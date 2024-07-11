@@ -72,6 +72,10 @@ Connect all the placed cells and IO pins with metal wires. Use a global router f
 ### 7. Sign-Off
 Perform final verification steps, including Design Rule Checking (DRC), Layout Versus Schematic (LVS) checking, and timing analysis, to ensure the design meets all specifications and is ready for fabrication.
 
+> OpenLane ASIC Flow
+![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/b27ef6c7-fb80-439c-8797-175c9a695fe7)
+
+
 
 
 
