@@ -321,6 +321,40 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 > Standard cells kept in the lower part of design
 ![image](https://github.com/user-attachments/assets/d5a74429-d228-4cb4-a883-59bf6c0b28da)
 
+### Placement in VLSI Design
+
+Placement is a critical step in VLSI (Very Large Scale Integration) design, determining the physical positions of standard cells or logic elements within a chip or block.
+```
+% run_placement
+```
+![image](https://github.com/user-attachments/assets/ba0c9546-a5d5-464f-b968-1fbb9ff3c466)
+
+
+```
+# Change directory to path containing generated floorplan def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/placement/
+
+# Command to load the floorplan def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
+#### Global Placement
+
+- **Objective:** Assign general locations to movable objects (cells).
+- **Flexibility:** Some overlaps between placed objects are allowed during this stage.
+- **Goal:** Achieve a rough layout that meets area constraints.
+
+#### Detailed Placement
+
+- **Objective:** Refine the object locations obtained from global placement.
+- **Constraints:** Enforce non-overlapping constraints and ensure cells are placed on legal cell sites.
+- **Impact:** The quality of detailed placement has a significant effect on subsequent routing stages.
+
+> Result of placement
+![image](https://github.com/user-attachments/assets/7c6180a3-b21d-460f-8776-0546c9a06e7b)
+
+
+
 
 
 
