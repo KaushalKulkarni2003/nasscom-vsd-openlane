@@ -282,6 +282,46 @@ Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
 ```
 ```math
 Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
+```
+#### Load generated floorplan def in magic tool and explore the floorplan.
+
+```
+# Change directory to path containing generated floorplan def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+
+# Command to load the floorplan def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+> Review Floorplan in Magic
+![image](https://github.com/user-attachments/assets/b529ddb7-c499-4f75-b3fc-9c696fa0d577)
+#### Instruction for using Magic
+
+```markdown
+# Design Alignment Instructions
+
+## Centering the Design
+
+1. Press `S` to select the entire design.
+2. Press `V` to vertically align it to the middle of the screen.
+
+## Zooming In on a Specific Area
+
+1. Left-click and drag to select the desired region.
+2. Right-click to bring up the context menu.
+3. Press `Z` to zoom in on the selected area.
+
+## Getting Details of a Cell
+
+1. Move your cursor to the cell of interest.
+2. Press `S` to select the cell.
+3. In the `tkcon` window, enter the command `what` to display cell details.
+```
+![image](https://github.com/user-attachments/assets/859db23d-01d1-4bc0-8043-85b9b44508fb)
+
+> Standard cells kept in the lower part of design
+![image](https://github.com/user-attachments/assets/d5a74429-d228-4cb4-a883-59bf6c0b28da)
+
+
 
 
 
