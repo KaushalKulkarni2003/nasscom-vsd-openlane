@@ -353,6 +353,15 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 > Result of placement
 ![image](https://github.com/user-attachments/assets/7c6180a3-b21d-460f-8776-0546c9a06e7b)
 
+#### IO Placer Concept
+Io Placer has usually 4 types. We can change its type by changing the variable in the floorplan.tcl file in configuration directory.
+![image](https://github.com/user-attachments/assets/c20935d2-8000-4ed4-b5f9-4d2478f2b0a2)
+![image](https://github.com/user-attachments/assets/215ccf71-c290-477a-98a8-b545798a7af0)
+> Here the IO Pin arrangement is changed now
+![image](https://github.com/user-attachments/assets/f80fc80a-fde5-4d50-ac51-9f4ded08ccad)
+> Previous floorplan with variable set to 1 by default
+
+
 
 
 
