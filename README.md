@@ -250,6 +250,40 @@ To solve this problem we introduce- Multiple power supply and ground. Hence the 
 > The actual design would look like this-
 ![image](https://github.com/KaushalKulkarni2003/nasscom-vsd-openlane/assets/112880728/a993a3c2-70c4-49a8-8d2f-a0ff922883ae)
 
+#### Floorplan
+Run the command to do floorplan
+```
+% run_floorplan
+```
+Go to directory- Open the def file to see 
+```
+vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-07_20-02/results/floorplan$ less picorv32a.floorplan.def
+```
+![image](https://github.com/user-attachments/assets/7ec7876c-c810-4ec6-b42e-34b9a89c84d8)
+
+According to floorplan def
+```math
+1000\ Unit\ Distance = 1\ Micron
+```
+```math
+Die\ width\ in\ unit\ distance = 660685 - 0 = 660685
+```
+```math
+Die\ height\ in\ unit\ distance = 671405 - 0 = 671405
+```
+```math
+Distance\ in\ microns = \frac{Value\ in\ Unit\ Distance}{1000}
+```
+```math
+Die\ width\ in\ microns = \frac{660685}{1000} = 660.685\ Microns
+```
+```math
+Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
+```
+```math
+Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
+
+
 
 
 
