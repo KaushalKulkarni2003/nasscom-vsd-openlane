@@ -375,8 +375,12 @@ The order in the syntax is as follows-
 ![image](https://github.com/user-attachments/assets/a6fe70a4-ba5a-4ed0-b9b7-21a6ddb4792e)
 Here the width and length were same for NMOS and PMOS.
 But in general the PMOS ratio of W/L should be `n` times the NMOS ratio. The comparison explains the DC out vs in characterstics of the MOSFET.
-> We can see that as the PMOS ratio is 2.5 times NMOS now the curve is shifted towards middle rather than previous is left. The curve is at 1.25 i.e. centre hence it is more preferable than First one.
+> We can see that as the PMOS ratio is 2.5 times NMOS now the curve is shifted towards middle rather than previous is left. The curve is at 1.25 i.e. centre hence it is more preferable than First one. To find switching threshold Vm plot a line with x=y and find the intersection point with the curve.
 ![Untitled design (13)](https://github.com/user-attachments/assets/b5ea6f48-4e5d-44d4-8b96-f3bd5c00f140)
+
+Dynamic Analysis of CMOS Inverter- Transient analysis where we give input pulse as shown and tran command
+![image](https://github.com/user-attachments/assets/564fae49-258b-4738-874b-29c49d31ba87)
+
 
 
 
