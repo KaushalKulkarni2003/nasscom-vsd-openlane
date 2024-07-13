@@ -353,6 +353,8 @@ magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs
 > Result of placement
 ![image](https://github.com/user-attachments/assets/7c6180a3-b21d-460f-8776-0546c9a06e7b)
 
+### Day 3
+
 #### IO Placer Concept
 Io Placer has usually 4 types. We can change its type by changing the variable in the floorplan.tcl file in configuration directory.
 ![image](https://github.com/user-attachments/assets/c20935d2-8000-4ed4-b5f9-4d2478f2b0a2)
@@ -360,6 +362,24 @@ Io Placer has usually 4 types. We can change its type by changing the variable i
 > Here the IO Pin arrangement is changed now
 ![image](https://github.com/user-attachments/assets/f80fc80a-fde5-4d50-ac51-9f4ded08ccad)
 > Previous floorplan with variable set to 1 by default
+
+#### SPICE Deck Creation-
+![image](https://github.com/user-attachments/assets/19b455ee-810e-4abd-9129-1359744a6482)
+- Component COnnectivity
+- Component Values
+- Component Nodes
+- Name Nodes
+
+The order in the syntax is as follows-
+`<component_name> <drain> <gate> <source> <substrate> W=<width> L=<length>`
+![image](https://github.com/user-attachments/assets/a6fe70a4-ba5a-4ed0-b9b7-21a6ddb4792e)
+Here the width and length were same for NMOS and PMOS.
+But in general the PMOS ratio of W/L should be `n` times the NMOS ratio. The comparison explains the DC out vs in characterstics of the MOSFET.
+> We can see that as the PMOS ratio is 2.5 times NMOS now the curve is shifted towards middle rather than previous is left. The curve is at 1.25 i.e. centre hence it is more preferable than First one.
+![Untitled design (13)](https://github.com/user-attachments/assets/b5ea6f48-4e5d-44d4-8b96-f3bd5c00f140)
+
+
+
 
 
 
