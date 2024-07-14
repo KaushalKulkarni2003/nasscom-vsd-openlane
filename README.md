@@ -507,6 +507,21 @@ How do we know the logical function of this invertor?
 4. Inside vsdstdcell directory do `ls -ltr` and see new spice file created
 5. Do `vim sky130_inv.spice`
 
+To make the connections proper in spice file check this diagram fro reference-
+![image](https://github.com/user-attachments/assets/070d391c-1c39-42ee-a59e-9834ae81cbf4)
+
+> Initial SPICE File
+![image](https://github.com/user-attachments/assets/7e5a2073-bfda-487d-a619-71b98bf0e552)
+
+> Final Edited SPICE File
+![image](https://github.com/user-attachments/assets/e4d77d4c-aeda-4195-81f3-9cb6da938010)
+
+> To launch ngspice enter command `ngspice sky130_inv.spice`
+![image](https://github.com/user-attachments/assets/d3600e76-5fce-4f1a-9c13-eeb5edcc9534)
+
+> Enter command `plot y vs time a` to check the graph. We have adjusted the capacitor values to reduce spikes
+![image](https://github.com/user-attachments/assets/7361cafc-a184-4289-8492-50dc99567ee5)
+
 
 
 
