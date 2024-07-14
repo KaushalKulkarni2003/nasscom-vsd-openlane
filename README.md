@@ -522,6 +522,32 @@ To make the connections proper in spice file check this diagram fro reference-
 > Enter command `plot y vs time a` to check the graph. We have adjusted the capacitor values to reduce spikes
 ![image](https://github.com/user-attachments/assets/7361cafc-a184-4289-8492-50dc99567ee5)
 
+#### Parameters for Characterization
+
+1. Rise Time
+    - The time taken for the output waveform to transition from 20% to 80% of its maximum value. (x1-x0)
+    - x0 = 2.18047e-09, y0 = 0.66
+    - x1 = 2.2413e-09, y1 = 2.64
+    - Rise time= 2.24-2.18 = 0.04ns
+2. Fall Time
+    - The time taken for the output waveform to fall from 80% to 20% of its minimum value. (x1-x0)
+    - x0 = 4.0522e-09, y0 = 2.64
+    - x1 = 4.09398e-09, y0 = 0.660377
+    - Fall Time = 4.093-4.052 = 0.041ns
+3. Propagation Delay
+    - The time taken for a 50% transition at the output (0 to 1) corresponding to a 50% transition at the input (1 to 0).
+    - x0 = 2.15012e-09, y0 = 1.65005
+    - x1 = 2.20807e-09, y0 = 1.65
+    - Propagation Delay= 2.20-2.15 = 0.05ns
+4. Cell Fall Delay
+    - The time taken for a 50% transition at the output (1 to 0) corresponding to a 50% transition at the input (0 to 1).
+    - x0 = 4.05e-09, y0 = 1.65004
+    - x1 = 4.07615e-09, y0 = 1.65
+    - Cell Fall Delay = 4.07 - 4.05 = 0.02ns
+
+
+   
+   
 
 
 
