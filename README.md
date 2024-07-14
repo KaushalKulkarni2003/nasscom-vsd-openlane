@@ -1,4 +1,4 @@
-# Digital VLSI SoC Design
+![image](https://github.com/user-attachments/assets/d2e82b8d-5fe0-4097-98d5-95aba3bf9ca6)# Digital VLSI SoC Design
 
 
 ## IC Design Components
@@ -380,6 +380,135 @@ But in general the PMOS ratio of W/L should be `n` times the NMOS ratio. The com
 
 Dynamic Analysis of CMOS Inverter- Transient analysis where we give input pulse as shown and tran command
 ![image](https://github.com/user-attachments/assets/564fae49-258b-4738-874b-29c49d31ba87)
+
+#### Git clone the vsdstdcelldesign repository
+```
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Clone the repository with custom inverter design
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+
+# Change into repository directory
+cd vsdstdcelldesign
+
+# Copy magic tech file to the repo directory for easy access
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech 
+
+# Check contents whether everything is present
+ls
+
+# Command to open custom inverter layout in magic
+magic -T sky130A.tech sky130_inv.mag &
+```
+> CMOS Inverted Layout
+![image](https://github.com/user-attachments/assets/150965e8-af8a-48a3-9f2d-273f5b4ac32e)
+
+#### Inception of Layout and CMOS Fabrication Process
+##### 16 Mask CMOS Process
+1. Selecting a substrate
+       - P-type selected and substrate doping should be less than well doping
+       - ![image](https://github.com/user-attachments/assets/b4b1fc4f-85fd-45f8-aa81-7ac42a4882b1)
+
+2. Creating active region for transistors
+   - Add SiO2 for insulator, Si3N4 and photoresist
+   - Create Mask 1
+   - ![image](https://github.com/user-attachments/assets/b70ee72e-e7b2-437f-b33a-88b01da0b347)
+   - Now it is washed out in developing solution to remove photoresist
+   - ![image](https://github.com/user-attachments/assets/b89e8ab3-2099-407d-a3b7-0b87dbd294dd)
+   - Now it is placed in oxidation furnace at about 1100 degree celsius for 4-6 hours
+   - ![image](https://github.com/user-attachments/assets/2ff36c31-dc01-48ae-b856-d6aeb530a3ea)
+   - Next Si3N4 is etched off using Phosphoric acid
+
+3. N-well and P-well creation
+    - Same mask process is used to isolate a part and Boron(P-type element) is used to create a P-well by Ion Implantation process
+    - ![image](https://github.com/user-attachments/assets/5e83e910-9e3a-4dad-bc24-39f06918d4bd)
+    - Similar process is used to create N-well using Phosphoros(N-type) element.
+    - Next it is put into driving furnace and the wells are driven down. It is called twin tub process.
+    - ![image](https://github.com/user-attachments/assets/946c3b85-b720-4f2c-9281-031817a84393)
+      
+4. Formation of gate
+   - Gate is one of the main element because it controls the threshold voltage of a transistor
+   - Similar process is used to form n and p layer using Boron and Arsenic at low voltage
+   - ![image](https://github.com/user-attachments/assets/388d9932-1d3b-41ca-a60d-22d6cb970dd8)
+   - ![image](https://github.com/user-attachments/assets/389e51a0-7829-4e54-ae83-7a89d42e2945)
+   - Now here we have created Low Resistance gate by adding additional impurities in the doping process
+   - ![image](https://github.com/user-attachments/assets/040de682-a695-41e3-b858-cf4177e5e02f)
+
+5. Lighly Doped Drain(LDD) Formation
+   - Here we create certain structure of source and drain to get high performance
+   - Here P+/N+ are for PMOS and NMOS, P-/N- are for LDD and N/P layers are wells
+   - ![image](https://github.com/user-attachments/assets/2f531057-c649-47e6-9050-28760671c03d)
+   - ![image](https://github.com/user-attachments/assets/e9f14c1f-cfe2-455d-a1c1-3d38e0ca5617)
+   - ![image](https://github.com/user-attachments/assets/6ed6d55d-c844-4465-ac0e-0a2df677074f)
+   - N-implant and P- type is created now
+   - ![image](https://github.com/user-attachments/assets/03572521-059a-446a-a037-783ef7b1f765)
+   - Plasma anisotropic etching is done now for creating side wall spacers
+   - ![image](https://github.com/user-attachments/assets/7c0858db-05df-4ef9-82a5-30e2230e10ea)
+   - ![image](https://github.com/user-attachments/assets/483b0284-58fd-45e6-9702-23beea20d3d4)
+   
+6. Source and Drain Formation
+   - Add a thin layer of screen osxide to avoid effect of channeling. During implantation if the vector velocity of ion matches crystalline structure of P-type substrate, the ions mught do deep inside the substrate without getting blocked. We try to reduce randomization of ions.
+   - ![image](https://github.com/user-attachments/assets/022ce320-c930-4e4e-95b6-55d421dd972a)
+   - High temperature annealing is done now.
+   - ![image](https://github.com/user-attachments/assets/b412ba00-ac48-4b06-bbe3-657e28c71197)
+
+7. Steps to form contacts and interconnects(local)
+   - Contacts are important because that is the only thing accessible to the user for controlling the electrical characterstics on PMOS/NMOS
+   - Etch thin oxide in HF
+   - Deposit Titanium through sputtering
+   - ![image](https://github.com/user-attachments/assets/aa02fc48-3f51-48ac-b6aa-f63b89b44c18)
+   - Low resistance contacts are made now- TiS2
+   - ![image](https://github.com/user-attachments/assets/4fa58ec0-73c8-46ac-8595-09f1ec2339f5)
+   - TiN for local connection
+   - ![image](https://github.com/user-attachments/assets/46ecf6a4-bf29-4851-8661-d93d61c01f7a)
+   - Mask process is used with Mask 11 here to form interconnects
+   - ![image](https://github.com/user-attachments/assets/15f2d4ab-bef2-4359-8313-3ea19e6c2a96)
+   
+8. Higher Level Metal Formation
+    - As the surface is non-planar it is not ideal to form metal contacts there
+    - Deposit thick layer of SiO2 with P. Phosphoros acts as protection for mobile Sodium Ion. Boron is used to reduce the temperature of surface
+    - ![image](https://github.com/user-attachments/assets/6afb7b97-3491-49de-84ba-318791f1944b)
+    - ![image](https://github.com/user-attachments/assets/9318b515-b436-4a66-a11a-414d1b666ce5)
+    - Repeat Mask process with Mask 12.
+    - ![image](https://github.com/user-attachments/assets/710021af-13b0-4f69-8a0a-772e8adb6551)
+    - Deposit TiN layer as it acts as good adhesive layer to SiO2
+    - ![image](https://github.com/user-attachments/assets/6a015d26-3b95-4abf-848f-8e4923c168bc)
+    - ![image](https://github.com/user-attachments/assets/45b3590a-63f4-46e9-881e-6c913241484f)
+    - Use Mask 14 to drill similar holes
+    - ![image](https://github.com/user-attachments/assets/4183df44-e7d0-454c-9fde-abb4b38a95c1
+    - Repeat similar steps to form layers
+    - ![image](https://github.com/user-attachments/assets/8a40190b-f0eb-4122-9c04-49d29e35c2d1)
+    - Final 16 Mask is used to drill contact holes.
+    - ![image](https://github.com/user-attachments/assets/1e86651c-ffae-4136-aa6c-59aeba1ab1ac)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
