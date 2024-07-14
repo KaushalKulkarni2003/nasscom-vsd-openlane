@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/d2e82b8d-5fe0-4097-98d5-95aba3bf9ca6)# Digital VLSI SoC Design
+# Digital VLSI SoC Design
 
 
 ## IC Design Components
@@ -474,6 +474,7 @@ magic -T sky130A.tech sky130_inv.mag &
     - ![image](https://github.com/user-attachments/assets/710021af-13b0-4f69-8a0a-772e8adb6551)
     - Deposit TiN layer as it acts as good adhesive layer to SiO2
     - ![image](https://github.com/user-attachments/assets/6a015d26-3b95-4abf-848f-8e4923c168bc)
+    - ![image](https://github.com/user-attachments/assets/d2e82b8d-5fe0-4097-98d5-95aba3bf9ca6)
     - ![image](https://github.com/user-attachments/assets/45b3590a-63f4-46e9-881e-6c913241484f)
     - Use Mask 14 to drill similar holes
     - ![image](https://github.com/user-attachments/assets/4183df44-e7d0-454c-9fde-abb4b38a95c1
@@ -482,6 +483,29 @@ magic -T sky130A.tech sky130_inv.mag &
     - Final 16 Mask is used to drill contact holes.
     - ![image](https://github.com/user-attachments/assets/1e86651c-ffae-4136-aa6c-59aeba1ab1ac)
 
+
+## Lab Continued
+
+> Checking the layers
+![image](https://github.com/user-attachments/assets/f77abae3-e9ad-458a-aa6c-5e9a482ccb71)
+
+> Check if there is connection between Vdd and source of PMOS
+![image](https://github.com/user-attachments/assets/2e593936-1631-4fc3-887e-7f37ed9e9698)
+
+> Similarly check with Ground and NMOS also
+![image](https://github.com/user-attachments/assets/25d89fa0-0784-48a0-8bc4-cb6184bcf3b0)
+
+> Difference between a Layout and Abstract. Usually when we buy an IP from vendor we can only see the abstract as the vendor won't show his propritory logic.
+![image](https://github.com/user-attachments/assets/47aceed4-5074-4cc6-9a39-14356e7060e6)
+
+How do we know the logical function of this invertor?
+-> For that we will frst extract to spice and then simulate it in ngspice
+
+1. Open tkon window. write command `extract all`
+2. Next type `ext2spice cthresh 0 rthresh 0`
+3. And final `ext2spice`
+4. Inside vsdstdcell directory do `ls -ltr` and see new spice file created
+5. Do `vim sky130_inv.spice`
 
 
 
