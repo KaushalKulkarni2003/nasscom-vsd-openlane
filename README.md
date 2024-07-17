@@ -555,6 +555,33 @@ To make the connections proper in spice file check this diagram fro reference-
 6. View magiccrc file- `vim .magicrc`
 7. Open magic tool by command- `magic -d XR &`
 
+> Screenshot of magicrc file-
+![image](https://github.com/user-attachments/assets/a4baa5a7-3100-4a9f-9ba8-3ee7f70f196b)
+
+> check for DRC violation, Command- ```drc why ```
+![image](https://github.com/user-attachments/assets/36c0128f-d66d-42fe-8937-d5a780ea7b33)
+
+> Load the poly.mag file. Give command inside tckon window ```load poly ```
+![image](https://github.com/user-attachments/assets/5621bc35-ad1a-460a-b6a1-97c94030210d)
+
+> Fix the commands inside the sky130 using vim editor tech file. We choose allpolynonres as it is the most suitable.
+![image](https://github.com/user-attachments/assets/3f3d043e-f2f7-4fa7-92d0-b267d642ada7)
+![image](https://github.com/user-attachments/assets/c16ed026-f463-4f04-af2f-ff4219cf341d)
+> We were having a width of only 0.30um which is violating the defined poly.9 rule
+![image](https://github.com/user-attachments/assets/034de343-2a38-45d5-b709-721079ab36d8)
+
+Load the tech file in tckon window- ```tech load sky130A.tech ```
+Check the drc error by selecting the area- ``` drc check ```
+Check for more error- ``` drc why ```
+
+> Before changes
+![image](https://github.com/user-attachments/assets/bc9e7e48-9d97-45d8-b97b-42b9613e8abc)
+> After changes
+![image](https://github.com/user-attachments/assets/a0863850-ecd6-47d3-a67a-0c37d8d7beb3)
+
+
+
+
 
    
    
