@@ -546,6 +546,16 @@ To make the connections proper in spice file check this diagram fro reference-
     - Cell Fall Delay = 4.07 - 4.05 = 0.02ns
 
 
+#### Find problem in the DRC section of the old magic tech file for the skywater process and fix them
+1. Change to main directory- `cd`
+2. Download the Lab files- `wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz`
+3. Extract the compressed file- `tar xfz drc_tests.tgz`
+4. Go to lab folder- `cd drc_tests`
+5. Check the files present in the folder- `ls -ltr`
+6. View magiccrc file- `vim .magicrc`
+7. Open magic tool by command- `magic -d XR &`
+
+
    
    
 
