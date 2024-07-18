@@ -1,4 +1,4 @@
-# Digital VLSI SoC Design
+ # Digital VLSI SoC Design
 
 
 ## IC Design Components
@@ -578,6 +578,32 @@ Check for more error- ``` drc why ```
 ![image](https://github.com/user-attachments/assets/bc9e7e48-9d97-45d8-b97b-42b9613e8abc)
 > After changes
 ![image](https://github.com/user-attachments/assets/a0863850-ecd6-47d3-a67a-0c37d8d7beb3)
+
+Now load nwell mag, Command- ``` load nwell.mag```
+Type- ```cif ostyle drc``` in tckon window
+![image](https://github.com/user-attachments/assets/cf921357-5163-4f4d-9d23-f8e383d6cfa9)
+Type - ``` cif see dnwell_shrink``` to see the area
+![image](https://github.com/user-attachments/assets/2333416d-0977-4be3-98c0-4a068c5d7ae0)
+Type - ```feed clear``` to clear the area
+See the missing area by- ```cif see nwell_missing```
+![image](https://github.com/user-attachments/assets/44c4ca57-058d-4711-8535-7843c02da049)
+Clear the feed again
+![image](https://github.com/user-attachments/assets/306f6632-608c-48fc-a03e-f0c01ebd2efc)
+
+Make the changes in tech file
+![image](https://github.com/user-attachments/assets/3b7e28c8-66cc-4070-af9f-c1f8695b2993)
+
+Check again using given commands in tckon window. We get error again because the whole nwell is untapped
+![image](https://github.com/user-attachments/assets/2be47601-ff2a-459c-a515-fa5d7395d515)
+
+Once we put nsubstratecontact. The error is resolved
+![image](https://github.com/user-attachments/assets/01fb3a67-d70b-44f1-a025-27d1fb77f2d9)
+
+By adding nsubstratecontact, that error is resolved.
+![image](https://github.com/user-attachments/assets/0310634d-5759-4ec1-90ac-c70e102030c7)
+
+
+
 
 
 
