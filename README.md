@@ -679,6 +679,18 @@ Note down current values to check after improving the design
 ![image](https://github.com/user-attachments/assets/bbdf6c94-7c34-4333-825a-9ad322267301)
 ![image](https://github.com/user-attachments/assets/916a92e9-a6b7-4710-88cb-dc2657730b16)
 
+#### Power aware CTS
+Is it possible to change the buffer with the gates directly?
+![image](https://github.com/user-attachments/assets/c77cf351-fb7d-427c-bbc0-cacaf7d9a3ce)
+![image](https://github.com/user-attachments/assets/f98e1212-c772-4c83-a358-0b5502c9bccc)
+![image](https://github.com/user-attachments/assets/6d1d6cb2-d0b5-49fc-bfa6-daa497f7ab11)
+
+![image](https://github.com/user-attachments/assets/ed10053f-8bd4-4221-abcc-46c049ed37ee)
+
+
+
+
+
 
 
 
