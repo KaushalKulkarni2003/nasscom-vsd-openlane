@@ -612,7 +612,76 @@ By adding nsubstratecontact, that error is resolved.
 - ![image](https://github.com/user-attachments/assets/3a1faf85-f63b-4d4c-97e4-9ee7330583ed)
 - Condition checked-
 - ![image](https://github.com/user-attachments/assets/df3f99b0-9436-46a4-b542-437c71f45f20)
-- Width of std cell should be odd multiple of x-pitch
+- Width of std cell should be odd multiple of x-pitch- 0.46*3= 1.380um. Verified
+- ![image](https://github.com/user-attachments/assets/7ea5ead2-cc00-4203-b726-8005ab0c4526)
+- Save it in tckon window- ```save sky130_vsdinv.mag```
+- When ports are created on layers they are created as PIN in the lef file.
+- Make lef file ```lef write```
+- ![image](https://github.com/user-attachments/assets/a307869b-6056-4c4d-8759-d5118548c67a)
+
+Copy lef file to picorv32 src folder- ```cp sky130_vsdinv.lef /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src``` from vsdstdcelldesign directory
+
+Make the changes in config.tcl file inside picorv32-
+```
+# Design
+set ::env(DESIGN_NAME) "picorv32a"
+
+set ::env(VERILOG_FILES) "./designs/picorv32a/src/picorv32a.v"
+set ::env(SDC_FILE) "./designs/picorv32a/src/picorv32a.sdc"
+
+set ::env(CLOCK_PERIOD) "5.000"
+set ::env(CLOCK_PORT) "clk"
+
+
+set ::env(CLOCK_NET) $::env(CLOCK_PORT)
+
+set ::env(FP_CORE_UTIL) 65
+set ::env(FP_IO_VMETAL) 4
+set ::env(FP_IO_HMETAL) 3
+
+
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+
+
+set filename $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/$::env(PDK)_$::env(STD_CELL_LIBRARY)_config.tcl
+if { [file exists $filename] == 1} {
+        source $filename
+}
+```
+
+*Now start the openlane in docker with interactive mode. Refer Day 1 notes for starting it.
+For starting the design form previos one and not to create a new one, command-
+```
+./flow.tcl -interactive
+
+package require openlane 
+
+running a specific design which in our case is 'picorv32a'
+prep -design picorv32a -tag <folder name which you want to continue> -overwrite
+
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+Our inverter cell in used-
+![image](https://github.com/user-attachments/assets/701d978b-bec8-4a4e-9d3f-8a12dd5ae6ce)
+
+Synthesis Successfull- ![image](https://github.com/user-attachments/assets/12917ee0-5ebd-45a1-a02e-ca6961ec7247)
+
+Note down current values to check after improving the design
+![image](https://github.com/user-attachments/assets/bbdf6c94-7c34-4333-825a-9ad322267301)
+![image](https://github.com/user-attachments/assets/916a92e9-a6b7-4710-88cb-dc2657730b16)
+
+
+
+
 
  
 
