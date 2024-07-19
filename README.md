@@ -603,6 +603,22 @@ By adding nsubstratecontact, that error is resolved.
 ![image](https://github.com/user-attachments/assets/0310634d-5759-4ec1-90ac-c70e102030c7)
 
 
+### Day 4 - Pre-layout timing analysis and importance of good clock tree
+
+- Open this design again under vsdstdcelldesign- ```magic -T sky130A.tech sky130_inv.mag```
+- Tracks file - ```vsduser@vsdsquadron:~/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd$ less tracks.info``` The first number is offset and second is pitch in the file for tracks with various layers.
+- ![image](https://github.com/user-attachments/assets/e69d0f4f-8566-44d9-bc61-c7d9008db7ff)
+- Add grid to the layout- ```grid 0.46um 0.34um 0.23um 0.17um```
+- ![image](https://github.com/user-attachments/assets/3a1faf85-f63b-4d4c-97e4-9ee7330583ed)
+- Condition checked-
+- ![image](https://github.com/user-attachments/assets/df3f99b0-9436-46a4-b542-437c71f45f20)
+- Width of std cell should be odd multiple of x-pitch
+
+ 
+
+
+
+
 
 
 
