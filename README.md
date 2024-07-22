@@ -869,6 +869,58 @@ report_checks -fields {net cap slew input_pins} -digits 4
 ```
 ![image](https://github.com/user-attachments/assets/2e97665f-8464-473a-bb9b-8883d6f03415)
 
+#### Clock Tree Synthesis(Tool- TritonCTS (OpenRoad))
+![image](https://github.com/user-attachments/assets/5ab39df0-d6b7-4796-888d-e9eefe3f6106)
+Mid point is calculated and then the clock is divided
+![image](https://github.com/user-attachments/assets/64705858-d10d-4759-80e5-f15e89891984)
+When step signal is given it has slope due to RC networks
+![image](https://github.com/user-attachments/assets/1fb93707-4d74-4925-8a5f-9fa2edeaf15e)
+Hence, repeaters are placed in the network.
+
+![image](https://github.com/user-attachments/assets/2d6d36bd-7406-4fdf-9837-e1da03ae0692)
+![image](https://github.com/user-attachments/assets/cb195f8f-7f47-4c33-80bb-1f4cff986e32)
+
+Commands-
+```
+# Now once again we have to prep design so as to update variables
+prep -design picorv32a -tag <directory> -overwrite
+
+# Addiitional commands to include newly added lef to openlane flow merged.lef
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_STRATEGY
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Follwing commands are alltogather sourced in "run_floorplan" command
+init_floorplan
+place_io
+tap_decap_or
+
+# Now we are ready to run placement
+run_placement
+
+# Incase getting error
+unset ::env(LIB_CTS)
+
+# With placement done we are now ready to run CTS
+run_cts
+```
+![image](https://github.com/user-attachments/assets/cc1848fe-47b3-46de-8529-62e2ad03a33e)
+
+
+
+
+
+
+
+
 
 
 
