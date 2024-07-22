@@ -687,6 +687,197 @@ Is it possible to change the buffer with the gates directly?
 
 ![image](https://github.com/user-attachments/assets/ed10053f-8bd4-4221-abcc-46c049ed37ee)
 
+#### Lab continued to fix slack
+Commands to open OpenLane
+```
+# Change directory to openlane flow directory
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+# Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command
+docker
+```
+```
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+
+![image](https://github.com/user-attachments/assets/eccdb84f-5995-47e7-acb2-5b1992428675)
+
+To solve the above error- Execute these commands separately
+```
+init_floorplan
+place_io
+tap_decap_or
+```
+![image](https://github.com/user-attachments/assets/de860919-1797-4173-b038-298cd5634975)
+Now run command ```run_placement```
+![image](https://github.com/user-attachments/assets/6e3bfb26-8b34-4d83-97a5-19599a421d4f)
+
+Run magic inside lacement directory inside results on picorv32a
+![image](https://github.com/user-attachments/assets/4b2dd7f4-4a8c-484f-9d2c-a68c250bd37d)
+```
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+VSD_INV used here-
+![image](https://github.com/user-attachments/assets/5d149c48-05f0-4992-90e8-5bdeb78f8497)
+
+#### Time Analysis with ideal clocks
+Combinational Delay= Clock period- Setup Time
+![image](https://github.com/user-attachments/assets/68ad772c-60a4-4e45-9646-481c2c9091bd)
+![image](https://github.com/user-attachments/assets/3e659454-45ff-4df0-a3a7-ab0ed9bd5e6e)
+![image](https://github.com/user-attachments/assets/cf5d6f8b-bc4e-4b69-a069-541dabff4e12)
+![image](https://github.com/user-attachments/assets/d17ca74e-1f32-4f94-bdd6-8273555bf31f)
+
+#### Do Post-Synthesis timing analysis with OpenSTA tool.
+Start the docker and commands-
+```
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+![image](https://github.com/user-attachments/assets/7f85ee12-5f10-4608-8728-faf96b8ecde5)
+Write this code in the file named- `pre_sta.conf` for STA analysis in `openlane` directory
+
+```
+set cmd units -time ns -capcitance pF -current mA -voltage V -resistance kOhm -distance um
+read liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib
+read liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib
+read liberty -max /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/22-07_14-48/results/synthesis/picorv32a.synthes
+is.v
+link_design picorv32a
+read sdc /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/base.sdc
+report_check -path_delay min_max -delay min_max -fields {slew trans new cap input_pin}
+report_tns
+report_wns
+```
+my_base.sdc-
+```
+set ::env(CLOCK_PORT) clk
+set ::env(CLOCK_PERIOD) 24.73
+#set ::env(SYNTH_DRIVING_CELL) sky130_vsdinv
+set ::env(SYNTH_DRIVING_CELL) sky130_fd_sc_hd__inv_8
+set ::env(SYNTH_DRIVING_CELL_PIN) Y
+set ::env(SYNTH_CAP_LOAD) 17.653
+set ::env(IO_PCT) 0.2
+set ::env(SYNTH_MAX_FANOUT) 6
+
+create_clock [get_ports $::env(CLOCK_PORT)]  -name $::env(CLOCK_PORT)  -period $::env(CLOCK_PERIOD)
+set input_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)]
+set output_delay_value [expr $::env(CLOCK_PERIOD) * $::env(IO_PCT)]
+puts "\[INFO\]: Setting output delay to: $output_delay_value"
+puts "\[INFO\]: Setting input delay to: $input_delay_value"
+
+set_max_fanout $::env(SYNTH_MAX_FANOUT) [current_design]
+
+set clk_indx [lsearch [all_inputs] [get_port $::env(CLOCK_PORT)]]
+#set rst_indx [lsearch [all_inputs] [get_port resetn]]
+set all_inputs_wo_clk [lreplace [all_inputs] $clk_indx $clk_indx]
+#set all_inputs_wo_clk_rst [lreplace $all_inputs_wo_clk $rst_indx $rst_indx]
+set all_inputs_wo_clk_rst $all_inputs_wo_clk
+
+# correct resetn
+set_input_delay $input_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] $all_inputs_wo_clk_rst
+#set_input_delay 0.0 -clock [get_clocks $::env(CLOCK_PORT)] {resetn}
+set_output_delay $output_delay_value  -clock [get_clocks $::env(CLOCK_PORT)] [all_outputs]
+
+# TODO set this as parameter
+set_driving_cell -lib_cell $::env(SYNTH_DRIVING_CELL) -pin $::env(SYNTH_DRIVING_CELL_PIN) [all_inputs]
+set cap_load [expr $::env(SYNTH_CAP_LOAD) / 1000.0]
+puts "\[INFO\]: Setting load to: $cap_load"
+set_load  $cap_load [all_outputs]
+```
+
+Run the sta command-
+```
+# Change directory to openlane
+cd Desktop/work/tools/openlane_working_dir/openlane
+
+# Command to invoke OpenSTA tool with script
+sta pre_sta.conf
+```
+![image](https://github.com/user-attachments/assets/dd011163-1dad-4bf2-87ed-158e93879a3e)
+
+More is the input skew more is delay and high is capacitance more is delay.
+More fanout is causing more delay we can add parameter to reduce fanout and do synthesis again
+Commands-
+```
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a -tag 25-03_18-52 -overwrite
+
+# Adiitional commands to include newly added lef to openlane flow
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Command to set new value for SYNTH_MAX_FANOUT
+set ::env(SYNTH_MAX_FANOUT) 4
+
+# Command to display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not
+echo $::env(SYNTH_DRIVING_CELL)
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+```
+> High fan out
+![image](https://github.com/user-attachments/assets/d412b9df-4033-48c8-9bf1-2030b6b431ad)
+
+Commands to  perform analysis and optimize timing by replacing with OR gate of drive strength 5
+
+```
+# Reports all the connections to a net
+report_net -connections _11643_
+
+# Checking command syntax
+help replace_cell
+
+# Replacing cell
+replace_cell _13690_ sky130_fd_sc_hd__or2_2
+
+# Generating custom timing report
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+![image](https://github.com/user-attachments/assets/2e97665f-8464-473a-bb9b-8883d6f03415)
+
+
+
+
+
+
+
+
+
+
 
 
 
