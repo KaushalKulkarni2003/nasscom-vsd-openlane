@@ -1058,6 +1058,55 @@ echo $::env(CTS_CLK_BUFFER_LIST)
 - ![image](https://github.com/user-attachments/assets/34df7752-abc7-4bd8-b9e9-91cf3f47ab46)
 
 
+#### Power Distribution Newtwork and Routing
+
+Enter the commands-
+```
+# Now that we have entered the OpenLANE flow contained docker sub-system we can invoke the OpenLANE flow in the Interactive mode using the following command
+./flow.tcl -interactive
+
+# Now that OpenLANE flow is open we have to input the required packages for proper functionality of the OpenLANE flow
+package require openlane 0.9
+
+# Now the OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'
+prep -design picorv32a -tag 11-07_20-02 -overwrite
+
+# Addiitional commands to include newly added lef to openlane flow merged.lef
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+
+# Command to set new value for SYNTH_STRATEGY
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+
+# Command to set new value for SYNTH_SIZING
+set ::env(SYNTH_SIZING) 1
+
+# Now that the design is prepped and ready, we can run synthesis using following command
+run_synthesis
+
+# Following commands are alltogather sourced in "run_floorplan" command
+init_floorplan
+place_io
+tap_decap_or
+
+# Now we are ready to run placement
+run_placement
+
+# Incase getting error
+unset ::env(LIB_CTS)
+
+# With placement done we are now ready to run CTS
+run_cts
+
+# Now that CTS is done we can do power distribution network
+gen_pdn 
+```
+- ![image](https://github.com/user-attachments/assets/d1077e86-9426-4406-9be2-7bd32098e3ec)
+- ![image](https://github.com/user-attachments/assets/ed417306-4eaf-4158-b2ec-acec5ed9baee)
+
+
+
+
 
 
 
