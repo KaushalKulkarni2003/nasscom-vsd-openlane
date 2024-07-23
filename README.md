@@ -1040,6 +1040,35 @@ set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_
 echo $::env(CTS_CLK_BUFFER_LIST)
 ```
 
+### Day 5 RTL2GDS using triton and openSTA
+#### Routing and DRC
+- Lee's Algorithm for routing between 2 points
+- ![image](https://github.com/user-attachments/assets/a00d816b-d7bd-4679-b14a-d122f4edab60)
+- Routes with less bends are preferred
+- ![image](https://github.com/user-attachments/assets/38e537aa-2a21-47c9-b6f5-275871a4b7d9)
+- > This is preferred- ![image](https://github.com/user-attachments/assets/4df967a6-0ba2-4c0c-b5cb-bcf95b9d24fb)
+- ![image](https://github.com/user-attachments/assets/08c737a2-11e7-485d-a400-40ada233ff1a)
+- Three typical rules in lithography of wire-
+  1. ![image](https://github.com/user-attachments/assets/1cc127d3-6094-4a9d-bc9d-5301b9473ad8)
+  2. ![image](https://github.com/user-attachments/assets/692bf877-2e05-4f9f-adff-80f5b0e1ef6d)
+  3. ![image](https://github.com/user-attachments/assets/dafd1e08-3ce8-4a10-b1bb-1108686cfcd2)
+- ![image](https://github.com/user-attachments/assets/1111c455-371c-484f-b0bb-57be37c7fc3d)
+- ![image](https://github.com/user-attachments/assets/0b479eca-2eb2-4eaa-9e39-5cc016b5086d)
+- ![image](https://github.com/user-attachments/assets/e145e177-2f49-48c0-b8e1-b379ec30c055)
+- ![image](https://github.com/user-attachments/assets/34df7752-abc7-4bd8-b9e9-91cf3f47ab46)
+
+
+
+
+
+
+
+  
+
+
+
+
+
 
 
 
