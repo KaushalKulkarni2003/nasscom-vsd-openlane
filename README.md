@@ -1103,6 +1103,71 @@ gen_pdn
 ```
 - ![image](https://github.com/user-attachments/assets/d1077e86-9426-4406-9be2-7bd32098e3ec)
 - ![image](https://github.com/user-attachments/assets/ed417306-4eaf-4158-b2ec-acec5ed9baee)
+- ![image](https://github.com/user-attachments/assets/748458ae-7fad-4df5-9b65-b9bda40e98a2)
+
+#### Routing
+- TritonRoute is the engine used for routing.
+- Strategies for routing- ![image](https://github.com/user-attachments/assets/41772f09-e977-4681-b91c-03016c914dc6)
+  
+##### Load pdn def in magic -T
+```
+# Change directory to path containing generated PDN def
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/11-07_20-02/tmp/floorplan/
+
+# Command to load the PDN def in magic tool
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &
+```
+![image](https://github.com/user-attachments/assets/3dd97f38-f290-4b80-a288-639dbdd8281e)
+![image](https://github.com/user-attachments/assets/fed47b94-51be-4f1c-ba0f-8fe80d12a9d3)
+
+##### Perform routing using TritonRoute
+```
+# Check value of 'CURRENT_DEF'
+echo $::env(CURRENT_DEF)
+
+# Check value of 'ROUTING_STRATEGY'
+echo $::env(ROUTING_STRATEGY)
+
+# Command for detailed route using TritonRoute
+run_routing
+```
+![image](https://github.com/user-attachments/assets/2b96fc59-6c4a-4cb7-8d5a-1e50fcb7f364)
+![image](https://github.com/user-attachments/assets/17f878e4-7646-499c-9e5a-c3c5f4856708)
+![image](https://github.com/user-attachments/assets/e2e227ac-55f1-4be8-a5fb-b034a9f96976)
+
+
+- ![image](https://github.com/user-attachments/assets/dd9e8bfb-c14a-416a-bc49-dacc31d0b28b)
+- ![image](https://github.com/user-attachments/assets/0aaa7ea7-7bd2-4935-95a0-6280cd3f33c4)
+- ![image](https://github.com/user-attachments/assets/9417aa21-6847-4e64-909d-db933e8ff1d3)
+- ![image](https://github.com/user-attachments/assets/96fefd61-9f6f-4777-bbcd-a6ffd6502b42)
+- ![image](https://github.com/user-attachments/assets/62a89c07-83e7-4603-99d0-6c44cc4a15df)
+- ![image](https://github.com/user-attachments/assets/2660faba-e2b2-4be5-8a09-e68a33694d0c)
+- ![image](https://github.com/user-attachments/assets/8c866b70-4377-4ad3-b388-65eccd37a651)
+- ![image](https://github.com/user-attachments/assets/dd1a5797-8c02-4acc-9dfd-8d8a68555526)
+
+> No violations. If violation are there either we can use TritonRoute14 or correct drc
+
+##### Post-Route parasitic extraction using SPEF extractor
+
+Spef File inside results/routing-
+![image](https://github.com/user-attachments/assets/06e0a024-4607-41ee-829e-64950ec4134a)
+
+
+# Final picorv32 routing
+![image](https://github.com/user-attachments/assets/1bda9856-233e-4e2e-ab4c-5afe51255a5e)
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
