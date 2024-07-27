@@ -554,12 +554,14 @@ To make the connections proper in spice file check this diagram fro reference-
 5. Check the files present in the folder- `ls -ltr`
 6. View magiccrc file- `vim .magicrc`
 7. Open magic tool by command- `magic -d XR &`
+8. Load met3 `load met3.mag` in tckon window
 
 > Screenshot of magicrc file-
 ![image](https://github.com/user-attachments/assets/a4baa5a7-3100-4a9f-9ba8-3ee7f70f196b)
 
 > check for DRC violation, Command- ```drc why ```
 ![image](https://github.com/user-attachments/assets/36c0128f-d66d-42fe-8937-d5a780ea7b33)
+![image](https://github.com/user-attachments/assets/1e1a0c47-23e6-4d9b-97e0-586e28257917)
 
 > Load the poly.mag file. Give command inside tckon window ```load poly ```
 ![image](https://github.com/user-attachments/assets/5621bc35-ad1a-460a-b6a1-97c94030210d)
